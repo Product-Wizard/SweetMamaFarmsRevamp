@@ -1,0 +1,38 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "4lKe9HOcj8WVuqxPBXui7"
+uri = "file://artifacts/sweet-mama-farms/public/hero.png"
+type = "image"
+title = "Hero Nigerian farm produce"
+
+[[generated]]
+id = "wO9LZ0a3YtqDuaxgJmdJN"
+uri = "file://artifacts/sweet-mama-farms/public/grains.png"
+type = "image"
+title = "Grains and cereals"
+
+[[generated]]
+id = "nAx2uqZrgaj2G7sLy9SnP"
+uri = "file://artifacts/sweet-mama-farms/public/poultry.png"
+type = "image"
+title = "Poultry and eggs"
+
+[[generated]]
+id = "mmWlGdIOFmEDwvgJlIWBj"
+uri = "file://artifacts/sweet-mama-farms/public/vegetables.png"
+type = "image"
+title = "Fresh vegetables"
+
+[[generated]]
+id = "n6RPEaHt2RtC4VawO4G25"
+uri = "file://artifacts/sweet-mama-farms/public/processed.png"
+type = "image"
+title = "Processed packaged foods"
+
+[[generated]]
+id = "rMbMvXDTAOSH_f6i2cJLB"
+uri = "file://artifacts/sweet-mama-farms/public/palm.png"
+type = "image"
+title = "Red palm oil"
