@@ -10,13 +10,13 @@ export default function Hero() {
       <div className="absolute bottom-10 left-10 w-72 h-72 bg-secondary/10 rounded-full blur-3xl -z-10" />
 
       <div className="container mx-auto px-4 md:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+        <div className="max-w-3xl">
 
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="max-w-2xl"
+            className="max-w-3xl"
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary font-semibold text-sm mb-6 border border-primary/20">
               <Briefcase size={16} />
@@ -64,40 +64,6 @@ export default function Hero() {
                 <div className="text-sm text-muted-foreground font-medium">Continents Served</div>
               </div>
             </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="relative lg:h-[700px] flex items-center justify-center"
-          >
-            <div className="relative w-full aspect-[4/5] lg:aspect-auto lg:h-full max-h-[700px] rounded-[2rem] overflow-hidden shadow-2xl">
-              <img
-                src="/hero.png"
-                alt="Fresh Nigerian Farm Produce"
-                className="w-full h-full object-cover object-center"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1, duration: 0.6 }}
-                className="absolute bottom-8 left-8 right-8 bg-white/90 backdrop-blur-md rounded-2xl p-4 flex items-center gap-4 shadow-xl border border-white"
-              >
-                <div className="h-12 w-12 rounded-full bg-secondary/10 flex items-center justify-center shrink-0">
-                  <img src="/sweet-mama-logo.jpg" alt="Sweet Mama Farms" className="h-10 w-10 rounded-full object-contain" />
-                </div>
-                <div>
-                  <div className="font-bold text-foreground font-display">Harvest to Home</div>
-                  <div className="text-sm text-muted-foreground">Processing, packaging, logistics — end to end.</div>
-                </div>
-              </motion.div>
-            </div>
-
-            <div className="absolute -z-10 top-1/2 -right-8 w-24 h-24 bg-accent/20 rounded-full blur-2xl" />
-            <div className="absolute -z-10 bottom-1/4 -left-8 w-32 h-32 bg-primary/20 rounded-full blur-2xl" />
           </motion.div>
 
         </div>

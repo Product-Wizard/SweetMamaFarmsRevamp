@@ -6,7 +6,6 @@ import Services from "@/components/sections/Services";
 import WhyUs from "@/components/sections/WhyUs";
 import About from "@/components/sections/About";
 import Stats from "@/components/sections/Stats";
-import Testimonials from "@/components/sections/Testimonials";
 import Contact from "@/components/sections/Contact";
 import Footer from "@/components/layout/Footer";
 
@@ -22,7 +21,6 @@ export default function Home() {
         <WhyUs />
         <About />
         <Stats />
-        <Testimonials />
         <Contact />
       </main>
       <Footer />
