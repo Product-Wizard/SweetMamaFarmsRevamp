@@ -36,3 +36,39 @@ id = "rMbMvXDTAOSH_f6i2cJLB"
 uri = "file://artifacts/sweet-mama-farms/public/palm.png"
 type = "image"
 title = "Red palm oil"
+
+[[generated]]
+id = "Ub31wCdtG4S144GqJ2QxP"
+uri = "file://artifacts/sweet-mama-farms/public/gallery-1.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "B5-FGkFbYA9pjl9JCU1GS"
+uri = "file://artifacts/sweet-mama-farms/public/gallery-2.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "P6Aea7vFsy8MCLgm8NVZU"
+uri = "file://artifacts/sweet-mama-farms/public/gallery-3.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "DDb3JvgLt5xjp20icLt8p"
+uri = "file://artifacts/sweet-mama-farms/public/gallery-4.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "Ut1-h10c33WLlYwIRuDFY"
+uri = "file://artifacts/sweet-mama-farms/public/gallery-5.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "pclbo73gcwmMPZWayEtfw"
+uri = "file://artifacts/sweet-mama-farms/public/gallery-6.png"
+type = "image"
+title = "generated_image"

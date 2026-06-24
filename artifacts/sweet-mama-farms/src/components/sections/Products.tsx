@@ -1,112 +1,131 @@
-import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
-const products = [
-  {
-    title: "Grains & Cereals",
-    description: "Premium grade rice, beans, maize, and millet sourced directly from the finest farms.",
-    image: "/grains.png",
-    color: "bg-amber-100",
-  },
-  {
-    title: "Poultry & Eggs",
-    description: "Farm-fresh eggs and healthy poultry raised in hygienic, free-range environments.",
-    image: "/poultry.png",
-    color: "bg-orange-100",
-  },
-  {
-    title: "Fresh Vegetables",
-    description: "Vibrant, nutrient-rich tomatoes, peppers, and greens hand-picked for quality.",
-    image: "/vegetables.png",
-    color: "bg-green-100",
-  },
-  {
-    title: "Processed Foods",
-    description: "Hygienically processed garri, yam flour, and plantain flour for quick, wholesome meals.",
-    image: "/processed.png",
-    color: "bg-stone-100",
-  },
-  {
-    title: "Red Palm Oil",
-    description: "Rich, unadulterated red palm oil extracted traditionally for that authentic home taste.",
-    image: "/palm.png",
-    color: "bg-red-100",
-  }
+const exportCommodities = [
+  "Sweet Mama Rice",
+  "Raw Cashew Nuts",
+  "Hibiscus",
+  "Sesame Seeds",
+  "Dried Split Ginger",
+  "Sunflower Seeds",
+  "Chick Peas",
+  "Soy Beans",
+  "Shea Nuts",
+  "Cocoa",
+  "Peanuts",
+];
+
+const otherCommodities = [
+  "Rice",
+  "Black-eyed Beans",
+  "Sorghum",
+  "Millet",
+  "Maize / Corn",
+  "Iodized Salt",
+  "Bulk Palm Oil",
+  "Vegetable Oil",
+];
+
+const tabs = [
+  { label: "Export Commodities", items: exportCommodities },
+  { label: "Other Commodities", items: otherCommodities },
 ];
 
 export default function Products() {
+  const [active, setActive] = useState(0);
+
   return (
     <section id="products" className="py-24 bg-white">
       <div className="container mx-auto px-4 md:px-8">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div className="max-w-2xl">
             <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">
-              Wholesome Goodness,<br />
-              <span className="text-secondary">From Our Farms to You.</span>
+              Our Products
             </h2>
             <p className="text-lg text-muted-foreground">
-              We cultivate, process, and package the finest agricultural products. Every item bearing the Sweet Mama name is a promise of quality, purity, and authentic Nigerian taste.
+              We source, process, and supply premium commodities to clients across Nigeria, Europe, and Asia. Every product meets strict quality standards — from field to final delivery.
             </p>
           </div>
-          <Button variant="outline" className="shrink-0 rounded-full border-primary text-primary hover:bg-primary hover:text-white">
-            Download Catalog
+          <Button variant="outline" className="shrink-0 rounded-full border-primary text-primary hover:bg-primary hover:text-white" asChild>
+            <a href="#contact">Request a Quote</a>
           </Button>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {products.map((product, index) => (
-            <motion.div
-              key={product.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group rounded-[2rem] overflow-hidden bg-card border border-border/50 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300"
+        {/* Tabs */}
+        <div className="flex gap-2 mb-10 bg-muted/40 p-1.5 rounded-2xl w-fit">
+          {tabs.map((tab, i) => (
+            <button
+              key={tab.label}
+              data-testid={`tab-${i}`}
+              onClick={() => setActive(i)}
+              className={`px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-200 ${
+                active === i
+                  ? "bg-white text-foreground shadow-sm"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
             >
-              <div className="relative aspect-square overflow-hidden">
-                <div className={`absolute inset-0 opacity-20 ${product.color} mix-blend-multiply z-10`} />
-                <img 
-                  src={product.image} 
-                  alt={product.title} 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                />
-              </div>
-              <div className="p-8">
-                <h3 className="font-display text-2xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
-                  {product.title}
-                </h3>
-                <p className="text-muted-foreground mb-6 line-clamp-2">
-                  {product.description}
-                </p>
-                <div className="flex items-center text-secondary font-semibold text-sm group/btn cursor-pointer">
-                  <span>Learn more</span>
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
-                </div>
-              </div>
-            </motion.div>
+              {tab.label}
+            </button>
           ))}
-          
-          {/* CTA Card */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.5, delay: 0.5 }}
-            className="rounded-[2rem] bg-primary p-8 flex flex-col justify-center text-white shadow-xl shadow-primary/20 relative overflow-hidden"
-          >
-            <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" />
-            <h3 className="font-display text-3xl font-bold mb-4 relative z-10">
-              Need bulk supply for your business?
-            </h3>
-            <p className="text-white/80 mb-8 relative z-10 text-lg">
-              We partner with distributors, restaurants, and retailers across Nigeria to supply premium produce at scale.
-            </p>
-            <Button variant="secondary" size="lg" className="rounded-full w-fit bg-white text-primary hover:bg-white/90 relative z-10 font-bold" asChild>
-              <a href="#contact">Become a Partner</a>
-            </Button>
-          </motion.div>
         </div>
+
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={active}
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.3 }}
+          >
+            {/* Category label */}
+            <div className="mb-6">
+              <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary font-semibold text-sm border border-primary/20">
+                {tabs[active].label}
+              </span>
+            </div>
+
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+              {tabs[active].items.map((item, index) => (
+                <motion.div
+                  key={item}
+                  initial={{ opacity: 0, scale: 0.96 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.25, delay: index * 0.04 }}
+                  data-testid={`product-card-${index}`}
+                  className="group flex items-center gap-3 p-5 rounded-2xl border border-border/50 bg-card hover:border-primary/40 hover:bg-primary/5 hover:shadow-md transition-all duration-200 cursor-default"
+                >
+                  <div className="w-2.5 h-2.5 rounded-full bg-primary shrink-0 group-hover:scale-125 transition-transform" />
+                  <span className="font-medium text-foreground text-sm leading-snug group-hover:text-primary transition-colors">
+                    {item}
+                  </span>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </AnimatePresence>
+
+        {/* CTA Banner */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="mt-14 rounded-[2rem] bg-secondary p-10 md:p-14 flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden"
+        >
+          <div className="absolute top-0 right-0 w-80 h-80 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none" />
+          <div className="relative z-10 max-w-xl">
+            <h3 className="font-display text-2xl md:text-3xl font-bold text-white mb-3">
+              Need bulk supply or customised packaging?
+            </h3>
+            <p className="text-white/75 text-base">
+              We supply bulk grains, oils, and cash crops to food manufacturers, donor agencies, and distributors — in your preferred packaging and specification.
+            </p>
+          </div>
+          <Button size="lg" className="shrink-0 rounded-full bg-white text-secondary hover:bg-white/90 font-bold relative z-10 text-base px-8 h-14" asChild>
+            <a href="#contact">Become a Partner</a>
+          </Button>
+        </motion.div>
       </div>
     </section>
   );
