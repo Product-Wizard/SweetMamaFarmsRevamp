@@ -2,18 +2,28 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
+import sweetMamaRiceImg from "@assets/Sweet_mama_rice_1783101257458.jpg";
+import rawCashewImg from "@assets/Raw-cashew-nuts-300x226_1783101257454.jpg";
+import hibiscusImg from "@assets/Hibiscus-dry-300x200_1783101257453.jpg";
+import driedGingerImg from "@assets/Dried-ginger-300x225_1783101257452.jpeg";
+import sunflowerSeedsImg from "@assets/Sunflower-seeds_1783101257457.jpg";
+import chickPeasImg from "@assets/chick-peas_1783101257449.jpg";
+import soyBeansImg from "@assets/soy-beans-300x195_1783101257456.jpg";
+import sheaNutsImg from "@assets/Shea-nut-300x169_1783101257455.jpg";
+import cocoaImg from "@assets/Cocoa-300x200_1783101257451.jpg";
+
 const exportCommodities = [
-  "Sweet Mama Rice",
-  "Raw Cashew Nuts",
-  "Hibiscus",
-  "Sesame Seeds",
-  "Dried Split Ginger",
-  "Sunflower Seeds",
-  "Chick Peas",
-  "Soy Beans",
-  "Shea Nuts",
-  "Cocoa",
-  "Peanuts",
+  { name: "Sweet Mama Rice", image: sweetMamaRiceImg },
+  { name: "Raw Cashew Nuts", image: rawCashewImg },
+  { name: "Hibiscus", image: hibiscusImg },
+  { name: "Sesame Seeds", image: null },
+  { name: "Dried Split Ginger", image: driedGingerImg },
+  { name: "Sunflower Seeds", image: sunflowerSeedsImg },
+  { name: "Chick Peas", image: chickPeasImg },
+  { name: "Soy Beans", image: soyBeansImg },
+  { name: "Shea Nuts", image: sheaNutsImg },
+  { name: "Cocoa", image: cocoaImg },
+  { name: "Peanuts", image: null },
 ];
 
 const otherCommodities = [
@@ -27,10 +37,7 @@ const otherCommodities = [
   "Vegetable Oil",
 ];
 
-const tabs = [
-  { label: "Export Commodities", items: exportCommodities },
-  { label: "Other Commodities", items: otherCommodities },
-];
+const tabs = ["Export Commodities", "Other Commodities"];
 
 export default function Products() {
   const [active, setActive] = useState(0);
@@ -56,7 +63,7 @@ export default function Products() {
         <div className="flex gap-2 mb-10 bg-muted/40 p-1.5 rounded-2xl w-fit">
           {tabs.map((tab, i) => (
             <button
-              key={tab.label}
+              key={tab}
               data-testid={`tab-${i}`}
               onClick={() => setActive(i)}
               className={`px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-200 ${
@@ -65,44 +72,88 @@ export default function Products() {
                   : "text-muted-foreground hover:text-foreground"
               }`}
             >
-              {tab.label}
+              {tab}
             </button>
           ))}
         </div>
 
         <AnimatePresence mode="wait">
-          <motion.div
-            key={active}
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.3 }}
-          >
-            {/* Category label */}
-            <div className="mb-6">
-              <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary font-semibold text-sm border border-primary/20">
-                {tabs[active].label}
-              </span>
-            </div>
-
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-              {tabs[active].items.map((item, index) => (
-                <motion.div
-                  key={item}
-                  initial={{ opacity: 0, scale: 0.96 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.25, delay: index * 0.04 }}
-                  data-testid={`product-card-${index}`}
-                  className="group flex items-center gap-3 p-5 rounded-2xl border border-border/50 bg-card hover:border-primary/40 hover:bg-primary/5 hover:shadow-md transition-all duration-200 cursor-default"
-                >
-                  <div className="w-2.5 h-2.5 rounded-full bg-primary shrink-0 group-hover:scale-125 transition-transform" />
-                  <span className="font-medium text-foreground text-sm leading-snug group-hover:text-primary transition-colors">
-                    {item}
-                  </span>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+          {active === 0 ? (
+            <motion.div
+              key="export"
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="mb-6">
+                <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary font-semibold text-sm border border-primary/20">
+                  Export Commodities
+                </span>
+              </div>
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
+                {exportCommodities.map((item, index) => (
+                  <motion.div
+                    key={item.name}
+                    initial={{ opacity: 0, scale: 0.96 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.25, delay: index * 0.04 }}
+                    data-testid={`export-product-${index}`}
+                    className="group relative rounded-2xl overflow-hidden aspect-[4/3] shadow-sm hover:shadow-xl transition-shadow duration-300 cursor-default"
+                  >
+                    {item.image ? (
+                      <img
+                        src={item.image}
+                        alt={item.name}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-primary/10 flex items-center justify-center">
+                        <div className="w-3 h-3 rounded-full bg-primary/40" />
+                      </div>
+                    )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                    <div className="absolute bottom-0 left-0 right-0 p-4">
+                      <p className="text-white font-semibold text-sm leading-snug drop-shadow">
+                        {item.name}
+                      </p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          ) : (
+            <motion.div
+              key="other"
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="mb-6">
+                <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary font-semibold text-sm border border-primary/20">
+                  Other Commodities
+                </span>
+              </div>
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+                {otherCommodities.map((item, index) => (
+                  <motion.div
+                    key={item}
+                    initial={{ opacity: 0, scale: 0.96 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.25, delay: index * 0.04 }}
+                    data-testid={`other-product-${index}`}
+                    className="group flex items-center gap-3 p-5 rounded-2xl border border-border/50 bg-card hover:border-primary/40 hover:bg-primary/5 hover:shadow-md transition-all duration-200 cursor-default"
+                  >
+                    <div className="w-2.5 h-2.5 rounded-full bg-primary shrink-0 group-hover:scale-125 transition-transform" />
+                    <span className="font-medium text-foreground text-sm leading-snug group-hover:text-primary transition-colors">
+                      {item}
+                    </span>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          )}
         </AnimatePresence>
 
         {/* CTA Banner */}
