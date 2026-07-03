@@ -44,7 +44,6 @@ export default function Footer() {
             <ul className="space-y-4">
               <li><a href="#" className="text-white/70 hover:text-primary transition-colors text-sm">Grains & Cereals</a></li>
               <li><a href="#" className="text-white/70 hover:text-primary transition-colors text-sm">Fresh Produce</a></li>
-              <li><a href="#" className="text-white/70 hover:text-primary transition-colors text-sm">Processed Foods</a></li>
             </ul>
           </div>
 
