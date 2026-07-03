@@ -2,6 +2,14 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
+import blackEyedBeansImg from "@assets/black-eyed-beans_1783109927249.jpg";
+import iodizedSaltImg from "@assets/Iodized-Salt_1783109927252.jpg";
+import maizeImg from "@assets/Maize-1-300x209_1783109927255.jpg";
+import milletImg from "@assets/Millet-1_1783109927257.jpg";
+import palmOilImg from "@assets/Palm-oil-300x169_1783109927258.jpg";
+import riceImg from "@assets/Rice-300x169_1783109927260.jpg";
+import sorghumImg from "@assets/sorghum-300x169_1783109927263.jpg";
+import vegetableOilImg from "@assets/Vegetable-oil-2-300x209_1783109927264.jpg";
 import sweetMamaRiceImg from "@assets/Sweet_mama_rice_1783101257458.jpg";
 import rawCashewImg from "@assets/Raw-cashew-nuts-300x226_1783101257454.jpg";
 import hibiscusImg from "@assets/Hibiscus-dry-300x200_1783101257453.jpg";
@@ -27,14 +35,14 @@ const exportCommodities = [
 ];
 
 const otherCommodities = [
-  "Rice",
-  "Black-eyed Beans",
-  "Sorghum",
-  "Millet",
-  "Maize / Corn",
-  "Iodized Salt",
-  "Bulk Palm Oil",
-  "Vegetable Oil",
+  { name: "Rice", image: riceImg },
+  { name: "Black-eyed Beans", image: blackEyedBeansImg },
+  { name: "Sorghum", image: sorghumImg },
+  { name: "Millet", image: milletImg },
+  { name: "Maize / Corn", image: maizeImg },
+  { name: "Iodized Salt", image: iodizedSaltImg },
+  { name: "Bulk Palm Oil", image: palmOilImg },
+  { name: "Vegetable Oil", image: vegetableOilImg },
 ];
 
 const tabs = ["Export Commodities", "Other Commodities"];
@@ -135,20 +143,27 @@ export default function Products() {
                   Other Commodities
                 </span>
               </div>
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
                 {otherCommodities.map((item, index) => (
                   <motion.div
-                    key={item}
+                    key={item.name}
                     initial={{ opacity: 0, scale: 0.96 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.25, delay: index * 0.04 }}
                     data-testid={`other-product-${index}`}
-                    className="group flex items-center gap-3 p-5 rounded-2xl border border-border/50 bg-card hover:border-primary/40 hover:bg-primary/5 hover:shadow-md transition-all duration-200 cursor-default"
+                    className="group relative rounded-2xl overflow-hidden aspect-[4/3] shadow-sm hover:shadow-xl transition-shadow duration-300 cursor-default"
                   >
-                    <div className="w-2.5 h-2.5 rounded-full bg-primary shrink-0 group-hover:scale-125 transition-transform" />
-                    <span className="font-medium text-foreground text-sm leading-snug group-hover:text-primary transition-colors">
-                      {item}
-                    </span>
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                    <div className="absolute bottom-0 left-0 right-0 p-4">
+                      <p className="text-white font-semibold text-sm leading-snug drop-shadow">
+                        {item.name}
+                      </p>
+                    </div>
                   </motion.div>
                 ))}
               </div>
