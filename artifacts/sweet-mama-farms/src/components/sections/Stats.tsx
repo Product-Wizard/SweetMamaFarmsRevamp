@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 const stats = [
   { value: "100+", label: "Years Combined Knowledge", desc: "Of shared family expertise" },
   { value: "20+", label: "Product Lines", desc: "Across grains, oils & cash crops" },
-  { value: "3", label: "Continents Reached", desc: "Nigeria, Europe and Asia" },
+  { value: "3", label: "Continents Reached", desc: "Africa, Europe and Asia" },
   { value: "6", label: "Core Services", desc: "End-to-end agri-business" },
 ];
 
