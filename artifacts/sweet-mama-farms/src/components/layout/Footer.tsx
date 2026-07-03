@@ -53,7 +53,7 @@ export default function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <MapPin size={18} className="text-primary shrink-0 mt-0.5" />
-                <span className="text-white/70 text-sm">14 Sweet Mama Avenue, Ikeja, Lagos, Nigeria</span>
+                <span className="text-white/70 text-sm">Mamman Kontagora Crescent, Katampe Extension. Abuja, Nigeria</span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone size={18} className="text-primary shrink-0" />
@@ -61,7 +61,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={18} className="text-primary shrink-0" />
-                <span className="text-white/70 text-sm">hello@sweetmamafarms.com</span>
+                <span className="text-white/70 text-sm">info@sweetmamafarms.com</span>
               </li>
             </ul>
           </div>
