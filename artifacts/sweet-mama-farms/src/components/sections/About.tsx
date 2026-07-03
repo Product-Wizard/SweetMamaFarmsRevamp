@@ -72,7 +72,7 @@ export default function About() {
             <div className="flex items-center gap-6">
               <div className="w-16 h-1 bg-primary rounded-full" />
               <p className="font-display font-bold text-xl italic text-foreground/80">
-                "Combining over 100 years of hard work and shared family knowledge."
+                "From Nigeria's fields to the world's tables — quality is our signature."
               </p>
             </div>
           </motion.div>
