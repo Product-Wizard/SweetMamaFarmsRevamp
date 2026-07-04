@@ -164,3 +164,6 @@ overrides:
   js-yaml: ">=4.2.0"
   qs: ">=6.15.2"
   "@babel/core": ">=7.29.1"
+
+allowBuilds:
+  esbuild: set this to true or false
