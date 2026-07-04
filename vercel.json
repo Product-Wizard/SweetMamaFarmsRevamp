@@ -1,12 +1,10 @@
 {
   "version": 2,
+  "outputDirectory": "artifacts/sweet-mama-farms/dist/public",
   "builds": [
     {
       "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "artifacts/sweet-mama-farms/dist/public"
-      }
+      "use": "@vercel/static-build"
     },
     {
       "src": "api/index.ts",
