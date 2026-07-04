@@ -4,6 +4,8 @@
     "moduleResolution": "bundler",
     "esModuleInterop": true,
     "skipLibCheck": true,
+    "noEmitOnError": false,
+    "noEmit": false,
     "types": ["node"]
   },
   "include": ["**/*.ts", "../artifacts/api-server/src/**/*.ts"]
